@@ -1,22 +1,23 @@
 package conv
 
-/*
-  I denne pakken skal alle konverteringfunksjonene
-  implementeres. Bruk engelsk.
-    FarhenheitToCelsius
-    CelsiusToFahrenheit
-    KelvinToFarhenheit
-    ...
-*/
-
 // Konverterer Farhenheit til Celsius
-func FarhenheitToCelsius(value float64) float64 {
-	// Her skal du implementere funksjonen
-	// Du skal ikke formattere float64 i denne funksjonen
-	// Gjør formattering i main.go med fmt.Printf eller
-	// lignende
-	return 56.67
+func FahrenheitToCelsius(Fahrenheit float64) float64 {
+	return (Fahrenheit - 32) * (5 / 9)
+}
+func FahrenheitToKelvin(Fahrenheit float64) float64 {
+	return (Fahrenheit-32)*(5/9) + 273.15
 }
 
-// De andre konverteringsfunksjonene implementere her
-// ...
+func CelsiusToFahrenheit(Celsius float64) float64 {
+	return Celsius*(9/5) + 32
+}
+func CelsiusToKelvin(Celsius float64) float64 {
+	return Celsius + 273.15
+}
+
+func KelvintoFahrenheit(Kelvin float64) float64 {
+	return (Kelvin-273.15)*(9/5) + 32
+}
+func KelvintoCelsius(Kelvin float64) float64 {
+	return Kelvin - 273.15
+}
