@@ -46,11 +46,11 @@ func init() {
 
 	//stein kode
 	// flag variablene
-	flag.Float64Var(&fahr, "F", 15.0, "temperatur i grader fahrenheit")
-	flag.Float64Var(&cels, "C", 30.0, "temperatur i grader celsius")
-	flag.Float64Var(&kelv, "K", 45.0, "temperatur i grader kelvin")
+	flag.Float64Var(&fahr, "F", 0.0, "temperatur i grader fahrenheit")
+	flag.Float64Var(&cels, "C", 0.0, "temperatur i grader celsius")
+	flag.Float64Var(&kelv, "K", 0.0, "temperatur i grader kelvin")
 	//
-	flag.Float64Var(&numb, "N", 777.0, "custom number")
+	flag.Float64Var(&numb, "N", 0.0, "custom number, output")
 	flag.Float64Var(&tconv, "T", 1, "type konversjon")
 }
 
@@ -102,6 +102,7 @@ func main() {
 				fmt.Println(numb, "farhenheit er", conv.FahrenheitToCelsius(numb), "celsius")
 			case 1:
 				fmt.Println(numb, "farhenheit er", conv.FahrenheitToKelvin(numb), "kelvin")
+				//fmt.Println(((numb-32.0)*(5.0/9.0))+273.15, numb)
 			case 2:
 				fmt.Println(numb, "celsius er", conv.CelsiusToFahrenheit(numb), "fahrenheit")
 			case 3:
