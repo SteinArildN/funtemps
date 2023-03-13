@@ -7,7 +7,7 @@ import (
 	//local
 	//"workspace/conv"
 	//github
-	"https://github.com/SteinArildN/funtemps/tree/main/conv"
+	"github.com/SteinArildN/funtemps/conv"
 )
 
 // Definerer flag-variablene i hoved-"scope"
@@ -45,6 +45,7 @@ func init() {
 	// hvilken temperaturskala skal brukes når funfacts skal vises
 
 	//stein kode
+	// flag variablene
 	flag.Float64Var(&fahr, "F", 15.0, "temperatur i grader fahrenheit")
 	flag.Float64Var(&cels, "C", 30.0, "temperatur i grader celsius")
 	flag.Float64Var(&kelv, "K", 45.0, "temperatur i grader kelvin")
