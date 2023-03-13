@@ -1,11 +1,11 @@
 package conv
 
 // Konverterer Farhenheit
-func FahrenheitToCelsius(Fahrenheit float64) float64 {
-	return (Fahrenheit - 32.0) * (5.0 / 9.0)
+func FahrenheitToCelsius(Fahren float64) float64 {
+	return (Fahren - 32.0) * (5.0 / 9.0)
 }
-func FahrenheitToKelvin(Fahrenheit float64) float64 {
-	return (((Fahrenheit - 32.0) * (5.0 / 9.0)) + 273.15 + 273.15)
+func FahrenheitToKelvin(Fahren float64) float64 {
+	return (((Fahren - 32.0) * (5.0 / 9.0)) + 273.15 + 273.15)
 }
 
 // Konvertere celsius
