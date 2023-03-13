@@ -4,10 +4,10 @@ import (
 	"flag"
 	"fmt"
 
+	"github.com/SteinArildN/funtemps/conv"
 	//local
 	//"workspace/conv"
 	//github
-	"github.com/SteinArildN/funtemps/conv"
 )
 
 // Definerer flag-variablene i hoved-"scope"
@@ -39,7 +39,7 @@ func init() {
 	// Definerer og initialiserer flagg-variablene
 	flag.Float64Var(&fahrj, "Fj", 0.0, "temperatur i grader fahrenheit")
 	// Du må selv definere flag-variablene for "C" og "K"
-	flag.StringVar(&outj, "out", "C", "beregne temperatur i C - celsius, F - farhenheit, K- Kelvin")
+	flag.StringVar(&outj, "out", "N", "beregne temperatur i C - celsius, F - farhenheit, K- Kelvin")
 	flag.StringVar(&funfactsj, "funfacts", "sun", "\"fun-facts\" om sun - Solen, luna - Månen og terra - Jorden")
 	// Du må selv definere flag-variabelen for -t flagget, som bestemmer
 	// hvilken temperaturskala skal brukes når funfacts skal vises
@@ -95,27 +95,64 @@ func main() {
 		}
 	}
 	if !jtest {
-		fmt.Println(fahr, cels, kelv)
-		if tconv <= 5 && tconv >= 0 {
-			switch tconv {
-			case 0:
-				fmt.Println(numb, "farhenheit er", conv.FahrenheitToCelsius(numb), "celsius")
-			case 1:
-				fmt.Println(numb, "farhenheit er", conv.FahrenheitToKelvin(numb), "kelvin")
-				//fmt.Println(((numb-32.0)*(5.0/9.0))+273.15, numb)
-			case 2:
-				fmt.Println(numb, "celsius er", conv.CelsiusToFahrenheit(numb), "fahrenheit")
-			case 3:
-				fmt.Println(numb, "celsius er", conv.CelsiusToKelvin(numb), "kelvin")
-			case 4:
-				fmt.Println(numb, "Kelvin er", conv.KelvintoFahrenheit(numb), "fahrenheit")
-			case 5:
-				fmt.Println(numb, "Kelvin er", conv.KelvintoCelsius(numb), "celsius")
-			}
+		/*
+			fmt.Println(fahr, cels, kelv)
+			if tconv <= 5 && tconv >= 0 {
+				switch tconv {
+				case 0:
+					fmt.Println(numb, "farhenheit er", conv.FahrenheitToCelsius(numb), "celsius")
+				case 1:
+					fmt.Println(numb, "farhenheit er", conv.FahrenheitToKelvin(numb), "kelvin")
+					//fmt.Println(((numb-32.0)*(5.0/9.0))+273.15, numb)
+				case 2:
+					fmt.Println(numb, "celsius er", conv.CelsiusToFahrenheit(numb), "fahrenheit")
+				case 3:
+					fmt.Println(numb, "celsius er", conv.CelsiusToKelvin(numb), "kelvin")
+				case 4:
+					fmt.Println(numb, "Kelvin er", conv.KelvintoFahrenheit(numb), "fahrenheit")
+				case 5:
+					fmt.Println(numb, "Kelvin er", conv.KelvintoCelsius(numb), "celsius")
+				}
 
-		} else {
-			fmt.Println("error, select type from 0 to 5..")
+			} else {
+				fmt.Println("error, select type from 0 to 5..")
+			}
+		*/
+		switch outj {
+		case "F":
+			if isFlagPassed("C") {
+				fmt.Println(cels, "celsius in fahrenheit is", conv.CelsiusToFahrenheit(cels))
+			}
+			if isFlagPassed("K") {
+				fmt.Println(kelv, "kelvin in fahrenheit is", conv.KelvintoFahrenheit(kelv))
+			}
+			if isFlagPassed("F") {
+				fmt.Println("Cant convert same type")
+			}
+		case "C":
+			if isFlagPassed("F") {
+				fmt.Println(fahr, "fahrenheit in celsius is", conv.FahrenheitToCelsius(fahr))
+			}
+			if isFlagPassed("K") {
+				fmt.Println(kelv, "kelvin in celsius is", conv.KelvintoCelsius(kelv))
+			}
+			if isFlagPassed("C") {
+				fmt.Println("Cant convert same type")
+			}
+		case "K":
+			if isFlagPassed("F") {
+				fmt.Println(fahr, "fahrenheit in kelvin is", conv.FahrenheitToKelvin(fahr))
+			}
+			if isFlagPassed("C") {
+				fmt.Println(cels, "celsius in kelvin is", conv.FahrenheitToCelsius(cels))
+			}
+			if isFlagPassed("K") {
+				fmt.Println("Cant convert same type")
+			}
+		case "N":
+			fmt.Println("please select conversion type and number")
 		}
+
 	}
 
 }
