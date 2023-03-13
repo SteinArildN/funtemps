@@ -2,7 +2,7 @@ package conv
 
 // Konverterer Farhenheit
 func FahrenheitToCelsius(Fahren float64) float64 {
-	return (Fahren - 32.0) * (5.0 / 9.0)
+	return 1337
 }
 func FahrenheitToKelvin(Fahren float64) float64 {
 	return (((Fahren - 32.0) * (5.0 / 9.0)) + 273.15 + 273.15)
